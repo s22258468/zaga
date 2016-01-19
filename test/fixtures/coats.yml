@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1
+  sell: 1
+  stock: 1
+  date: 2015-12-29
+  info: MyString
+
+two:
+  name: MyString
+  price: 1
+  sell: 1
+  stock: 1
+  date: 2015-12-29
+  info: MyString

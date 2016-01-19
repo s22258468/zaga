@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Zaga</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+    
+  
+</head>
+
+<body>
+$x=0;
+
+    <br/><br/><br/><br/>
+<div class="row text-center">
+            <div class="col-md-3 col-sm-6  col-xs-12 hero-feature">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Avrg Sales Number
+                    </div>
+                    <div class="panel-body">
+                        <i class="fa fa-usd fa-5">
+                        
+ 
+                       $ <%= Coat.average(:sell) * Coat.average(:price) %>
+                          
+
+                        </i>
+                        
+                        
+                       
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 hero-feature">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Growth Rate
+                    </div>
+                    <div class="panel-body">
+                    <i class="fa fa-line-chart"></i>
+                        21.3 %
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 hero-feature">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        Stores
+                    </div>
+                    <div class="panel-body">
+                        <i class="fa fa-home"></i> 152
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 hero-feature">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        Country
+                    </div>
+                    <div class="panel-body">
+                        <i class="fa fa-globe"></i>
+                        121
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br/>
+
+
+<div class="col-md-8 ">
+<%= content_tag :div, "", id: "coats_chart", data: {coats: @coats} %>
+</div>
+
+
+    <br/>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Sell</th>
+      <th>Stock</th>
+      <th>Date</th>
+      <th>Info</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @coats.each do |coat| %>
+      <tr>
+        <td><%= coat.name %></td>
+        <td><%= coat.price %></td>
+        <td><%= coat.sell %></td>
+        <td><%= coat.stock %></td>
+        <td><%= coat.date %></td>
+        <td><%= coat.info %></td>
+        <td><%= link_to 'Show', coat %></td>
+        <td><%= link_to 'Edit', edit_coat_path(coat) %></td>
+        <td><%= link_to 'Destroy', coat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+
+再訂購點(ROP):
+
+<%= Coat.average(:sell) * 3 %> 【存貨低於此數量時向廠商送出訂單】
+
+<br/>
+<br/>
+
+Avrg Sell:
+<%= Coat.average(:sell) %>
+
+
+<br/>
+<br/>
+
+
+
+<button type="button" class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= link_to 'Key-in', new_coat_path %>
+</button>
+
+
+
+
+
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

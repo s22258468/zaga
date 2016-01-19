@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @coat.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @coat.price %>
+</p>
+
+<p>
+  <strong>Sell:</strong>
+  <%= @coat.sell %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @coat.stock %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @coat.date %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @coat.info %>
+</p>
+
+<%= link_to 'Edit', edit_coat_path(@coat) %> |
+<%= link_to 'Back', coats_path %>
